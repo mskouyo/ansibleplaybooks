@@ -1,0 +1,23 @@
+---
+- hosts: all
+  ignore_errors: yes
+  become: yes
+  tasks:
+    - name: Create user
+      user:
+        name: Kouyo
+        comment: Kouyo Melette
+
+    - name: create directory
+      file:
+       path: /tmp/devop-ans
+       owner: Kouyo
+       state: touch
+       mode: "0777"
+    - name: create file
+      file:
+       path: /tmp/ansible-class
+       owner: Kouyo
+       state: touch
+       mode: "0600"
+
